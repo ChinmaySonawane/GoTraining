@@ -13,8 +13,14 @@ func main()  {
             v++
         }
     }
-
+    var sum int
   //  copy(q, p) only
+    for i,_ := range x {
+      for _,val := range x[i] {
+        sum += val
+        fmt.Println(i, val)
+      }
+    }
 
-    fmt.Println(x, "\n ", len(x), cap(x) ,"\n", p)//, q)
+    fmt.Println(x, "\n ", len(x), cap(x) ,"\n", p,"\n sum ",sum)//, q)
 }
