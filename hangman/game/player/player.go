@@ -1,5 +1,7 @@
 package player
-
+/*
+Player struct
+*/
 import ("fmt"
 		"time"
 )
@@ -9,6 +11,7 @@ type Player struct{
 	lastPlayed time.Time
 }
 
+//constuctor for Player
 func NewPlayer(name string) *Player {
 
 	player := new(Player)

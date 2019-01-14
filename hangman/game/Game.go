@@ -5,6 +5,7 @@ import ("fmt"
 		"Training/hangman/game/turn"
 )
 
+
 func Play()  {
 	//words:=[]string{"hello","hello"}
 	for{
@@ -17,19 +18,19 @@ func Play()  {
 			case 1  :	fmt.Println("\nENTER YOUR NAME")
 						var name string
 						fmt.Scan(&name)
-						players=player.CheckPlayer(players, name)
-						if len(players) != 0{
+						players = player.CheckPlayer(players, name)
+					/*	if len(players) != 0{
 							//fmt.Println("player exist")
 							for _,v := range players{
 
 								fmt.Println(v)
 							}
 						}
-
+					*/
 						turn := turn.NewGameStat(name,"hello")
 						turn.Chance()
 						turn.Show()
-						
+
 			case 2  :	return
 
 			default :	fmt.Println("WRONG CHOICE")

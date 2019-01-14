@@ -4,6 +4,8 @@ import ("fmt"
 		"strings"
 )
 
+//GameStat struct for game info
+
 type GameStat struct
 {		
 		playerName string
@@ -13,7 +15,9 @@ type GameStat struct
 		win bool;
 }
 
+//contructor for GameStat
 func NewGameStat(name string, word string)*GameStat  {	
+
 	GameStatObj := new(GameStat)
 	GameStatObj.playerName = name
 	GameStatObj.word = word
@@ -23,20 +27,23 @@ func NewGameStat(name string, word string)*GameStat  {
 	return GameStatObj
 }
 
+
+//word guess 
 func (obj *GameStat)GuessWord()  {
 	
 	fmt.Println("\nENTER Guess Word :")
 	var guessWord string
 	fmt.Scan(&guessWord)
 	 
-	if strings.ToLower(guessWord)==obj.word {
+	if strings.ToLower(guessWord) == obj.word {
 		obj.win = true
 		//return true
 	} else {
-		obj.chance=0
+		obj.chance = 0
 	}
 }
 
+//letter guess
 func (obj *GameStat)GuessLetter()  {
 	
 	fmt.Println("\nENTER Guess Letter :")
@@ -61,9 +68,10 @@ func (obj *GameStat)GuessLetter()  {
 
 }
 
+//chance to start game 
 func (obj *GameStat)Chance(){
 
-	for obj.chance!=0 && obj.win != true	{
+	for obj.chance != 0 && obj.win != true	{
 	
 		fmt.Println(obj.word, "\t", obj.playerGuess, "\t", obj.win)
 		orignal := []rune(obj.word)
@@ -93,6 +101,7 @@ func (obj *GameStat)Chance(){
 	}
 }
 
+//printing last result
 func (obj *GameStat)Show()  {
 	
 	fmt.Println("Player Name:", obj.playerName)
