@@ -72,8 +72,8 @@ func (obj *GameStat)GuessLetter()  {
 func (obj *GameStat)Chance(){
 
 	for obj.chance != 0 && obj.win != true	{
-	
-		fmt.Println(obj.word, "\t", obj.playerGuess, "\t", obj.win)
+		fmt.Println("player :",obj.playerName)
+		//fmt.Println(obj.word, "\t", obj.playerGuess, "\t", obj.win)
 		orignal := []rune(obj.word)
 		guess := []rune(obj.playerGuess)
 		op := []rune("_")

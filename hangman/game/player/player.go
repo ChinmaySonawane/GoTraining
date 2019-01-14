@@ -21,10 +21,12 @@ func NewPlayer(name string) *Player {
 
 }
  
+//tocheck player
 func CheckPlayer(players []Player, playerName string) []Player {
 	//var c int
 	for _, v := range players {
 		//c = k
+		fmt.Println(v.name)
 		if v.name == playerName {
 			fmt.Println("player exist")
 			return players
@@ -34,14 +36,13 @@ func CheckPlayer(players []Player, playerName string) []Player {
 
 	p := NewPlayer(playerName)
 	players = append(players, *p)
-	/*if len(players) != 0{
-		fmt.Println("player exist")
+	if len(players) != 0{
 		for _,v := range players{
-
+			
 			fmt.Println(v.name, v.lastPlayed)
 		}
 	}
 //	return c+1
-*/
+
 	return players
 }
