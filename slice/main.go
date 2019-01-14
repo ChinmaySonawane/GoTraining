@@ -14,7 +14,7 @@ func main() {
 
     var p = make([]int, 10)
     copy(p,s)//p[10] and s[5]
-    p=append(p,4)
+    p=append(p,s...)
     fmt.Println(p[:])
 
     twoD := make([][]int, 3)
