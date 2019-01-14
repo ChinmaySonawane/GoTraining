@@ -10,8 +10,9 @@ import ("fmt"
 
 func Play()  {
 	words:=[]string{"hello","people","hangman","play","if"}
+	players := make([]player.Player,0)
 	for{
-		players := make([]player.Player,0)
+		
 		fmt.Println("\nENTER YOUR CHIOCE\n\t1.PLAY \n\t2.EXIT \nCHOICE:")
 		var choice int
 		fmt.Scan(&choice)

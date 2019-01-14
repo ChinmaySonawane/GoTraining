@@ -42,7 +42,5 @@ func CheckPlayer(players []Player, playerName string) []Player {
 			fmt.Println(v.name, v.lastPlayed)
 		}
 	}
-//	return c+1
-
 	return players
 }
