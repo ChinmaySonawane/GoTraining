@@ -11,7 +11,7 @@ func print(s string, v *sync.WaitGroup) {
 	defer v.Done()
 	for index := 0; index < 5; index++ {
 
-		time.Sleep(1000 * time.Microsecond)
+		time.Sleep(time.Second)
 		fmt.Println(s, index)
 	}
 }
@@ -22,6 +22,7 @@ func main() {
 	go print("so", &v)
 	go print("on", &v)
 	//print("to", v)
+	time.Sleep(9 * time.Second)
 	fmt.Println("to")
-	v.Wait()
+	//v.Wait()
 }
