@@ -1,0 +1,65 @@
+use gofmt before commit(pushing code)
+
+use comments for programming decision
+
+use if with err:=
+		if  
+
+
+package main
+
+import (
+	//"net/url"
+	"fmt"
+	"net/http"
+	"os"
+)
+
+func main() {
+	var c = make(chan bool)
+	var done = make(chan bool)
+	var urls = []string{"http://www.google.com/", "http://www.chinmay.com/", "http://www.chinmaysonawane.com/", "https://golang.org/doc/effective_go.html"}
+	no := 2
+	go func(no int) {
+		i := 0
+
+		for range urls {
+
+			status := <-c
+			if !status {
+				fmt.Println("Status :", status)
+				i++
+			}
+			fmt.Println("fail count:", i)
+			if i >= no {
+				done <- true
+				os.Exit(0)
+			}
+		}
+		done <- true
+	}(no)
+
+	for _, u := range urls {
+
+		go func(u string) {
+
+			result, err := http.Get(u)
+			if err != nil {
+
+				c <- false
+				fmt.Println("name:", u)
+				fmt.Println("ERROR:\n", err)
+				//	os.Exit(0)
+			} else {
+
+				c <- true
+				fmt.Println("name:", u)
+				fmt.Println("result:", result.Status)
+			}
+		}(u)
+	}
+
+	<-done
+}
+
+
